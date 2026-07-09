@@ -6,7 +6,7 @@ A powerful, privacy-first **browser-based image processing tool** that lets you 
 
 ## 🔗 Live Demo & Repository
 
-> **Live:** [pixelforge.pages.dev](httpixelforge.deepakdubat.workers.dev) *(Deploy on Cloudflare Pages — Free)*
+> **Live:** [pixelforge.pages.dev](pixelforge.deepakdubat.workers.dev)
 > **GitHub:** [github.com/DeepakDubat/PixelForge](https://github.com/DeepakDubat/PixelForge)
 
 ---

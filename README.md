@@ -6,7 +6,7 @@ A powerful, privacy-first **browser-based image processing tool** that lets you 
 
 ## 🔗 Live Demo & Repository
 
-> **Live:** [pixelforge.pages.dev](pixelforge.deepakdubat.workers.dev)
+> **Live:** [(pixelforge.deepakdubat.workers.dev)](https://pixelforge.deepakdubat.workers.dev/)
 > **GitHub:** [github.com/DeepakDubat/PixelForge](https://github.com/DeepakDubat/PixelForge)
 
 ---
@@ -66,27 +66,6 @@ python -m http.server 7700
 # Then open:
 # http://localhost:7700
 ```
-
----
-
-## ☁️ Deploy on Cloudflare Pages (Free)
-
-### Option A — Direct Upload (2 minutes, no GitHub needed)
-
-1. Go to [dash.cloudflare.com](https://dash.cloudflare.com) → Create free account
-2. **Workers & Pages** → **Create** → **Pages** → **Upload assets**
-3. Name your project (e.g. `pixelforge`)
-4. Drag & drop all 3 files: `index.html`, `styles.css`, `app.js`
-5. Click **Deploy** → Live at `pixelforge.pages.dev` ✅
-
-### Option B — GitHub Auto-Deploy
-
-1. Fork/clone this repo to your GitHub
-2. Cloudflare Pages → **Connect to Git** → Select this repo
-3. Build settings:
-   - **Build command:** *(leave blank)*
-   - **Output directory:** `/`
-4. Deploy → Every `git push` auto-updates the live site ✅
 
 ---
 

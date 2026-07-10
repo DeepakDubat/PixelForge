@@ -114,85 +114,97 @@
           <!-- LEFT CONTROLS -->
           <div class="controls-column">
 
-            <!-- Pixel Dimensions -->
-            <div class="control-card">
-              <h3 class="control-card-title">
-                <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
-                Pixel Dimensions
-              </h3>
-              <div class="dimension-inputs">
-                <div class="form-group" style="flex:1">
-                  <label for="target-width">Width</label>
-                  <div class="input-with-unit">
-                    <input type="number" id="target-width" class="form-input" min="1" max="20000" value="800"/>
-                    <span class="input-unit">px</span>
+            <!-- Pixel Dimensions + Compress pair row -->
+            <div class="cards-pair-row">
+
+              <!-- Pixel Dimensions -->
+              <div class="control-card">
+                <h3 class="control-card-title">
+                  <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Pixel Dimensions
+                </h3>
+                <div class="dimension-inputs">
+                  <div class="form-group" style="flex:1">
+                    <label for="target-width">Width</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="target-width" class="form-input" min="1" max="20000" value="800"/>
+                      <span class="input-unit">px</span>
+                    </div>
+                  </div>
+                  <div class="aspect-link-wrap">
+                    <button class="aspect-lock-btn locked" id="aspect-lock-btn" title="Toggle aspect ratio link">
+                      <svg id="lock-icon-linked" viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <svg id="lock-icon-free" class="hidden" viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/><line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </button>
+                    <span class="aspect-link-label" id="aspect-link-label">Linked</span>
+                  </div>
+                  <div class="form-group" style="flex:1">
+                    <label for="target-height">Height</label>
+                    <div class="input-with-unit">
+                      <input type="number" id="target-height" class="form-input" min="1" max="20000" value="600"/>
+                      <span class="input-unit">px</span>
+                    </div>
                   </div>
                 </div>
-                <div class="aspect-link-wrap">
-                  <button class="aspect-lock-btn locked" id="aspect-lock-btn" title="Toggle aspect ratio link">
-                    <svg id="lock-icon-linked" viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <svg id="lock-icon-free" class="hidden" viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/><line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                  </button>
-                  <span class="aspect-link-label" id="aspect-link-label">Linked</span>
-                </div>
-                <div class="form-group" style="flex:1">
-                  <label for="target-height">Height</label>
-                  <div class="input-with-unit">
-                    <input type="number" id="target-height" class="form-input" min="1" max="20000" value="600"/>
-                    <span class="input-unit">px</span>
+
+                <!-- Social Presets -->
+                <div class="form-group">
+                  <label>Quick Presets</label>
+                  <div class="preset-grid-social">
+                    <button class="preset-btn-social" data-w="1080" data-h="1080"><span>📸</span><span>Instagram</span><span class="dim">1080×1080</span></button>
+                    <button class="preset-btn-social" data-w="1080" data-h="1920"><span>📱</span><span>Story</span><span class="dim">1080×1920</span></button>
+                    <button class="preset-btn-social" data-w="1280" data-h="720"><span>🎬</span><span>YouTube</span><span class="dim">1280×720</span></button>
+                    <button class="preset-btn-social" data-w="1200" data-h="628"><span>💼</span><span>LinkedIn</span><span class="dim">1200×628</span></button>
+                    <button class="preset-btn-social" data-w="1500" data-h="500"><span>🐦</span><span>Twitter</span><span class="dim">1500×500</span></button>
+                    <button class="preset-btn-social" data-w="820" data-h="312"><span>👥</span><span>FB Cover</span><span class="dim">820×312</span></button>
                   </div>
                 </div>
               </div>
 
-              <!-- Social Presets -->
-              <div class="form-group">
-                <label>Quick Presets</label>
-                <div class="preset-grid-social">
-                  <button class="preset-btn-social" data-w="1080" data-h="1080"><span>📸</span><span>Instagram</span><span class="dim">1080×1080</span></button>
-                  <button class="preset-btn-social" data-w="1080" data-h="1920"><span>📱</span><span>Story</span><span class="dim">1080×1920</span></button>
-                  <button class="preset-btn-social" data-w="1280" data-h="720"><span>🎬</span><span>YouTube</span><span class="dim">1280×720</span></button>
-                  <button class="preset-btn-social" data-w="1200" data-h="628"><span>💼</span><span>LinkedIn</span><span class="dim">1200×628</span></button>
-                  <button class="preset-btn-social" data-w="1500" data-h="500"><span>🐦</span><span>Twitter</span><span class="dim">1500×500</span></button>
-                  <button class="preset-btn-social" data-w="820" data-h="312"><span>👥</span><span>FB Cover</span><span class="dim">820×312</span></button>
-                </div>
-              </div>
-            </div>
+              <!-- Compress Options -->
+              <div class="control-card compress-card">
+                <h3 class="control-card-title">
+                  <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 16V4a1 1 0 0 1 1-1h6l5 5v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 3v5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Compress <span class="optional-badge">Optional</span>
+                </h3>
 
-            <!-- Compress Options -->
-            <div class="control-card">
-              <h3 class="control-card-title">
-                <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M4 16V4a1 1 0 0 1 1-1h6l5 5v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 3v5h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                Compress (Optional)
-              </h3>
-              <div class="compress-row">
-                <div class="form-group" style="flex:1;margin-bottom:0">
+                <!-- Target Size Input -->
+                <div class="form-group">
                   <label for="target-kb">Target File Size</label>
                   <div class="input-with-unit">
                     <input type="number" id="target-kb" class="form-input" min="1" max="50000" placeholder="Leave blank to skip"/>
                     <span class="input-unit">KB</span>
                   </div>
                 </div>
-                <div class="form-group" style="flex:0 0 auto;margin-bottom:0">
-                  <label>Presets</label>
+
+                <!-- Quick KB Presets -->
+                <div class="form-group">
+                  <label>Quick Presets</label>
                   <div class="kb-presets">
-                    <button class="kb-preset" data-kb="50">50</button>
-                    <button class="kb-preset" data-kb="100">100</button>
-                    <button class="kb-preset" data-kb="200">200</button>
-                    <button class="kb-preset" data-kb="500">500</button>
+                    <button class="kb-preset" data-kb="50">50 KB</button>
+                    <button class="kb-preset" data-kb="100">100 KB</button>
+                    <button class="kb-preset" data-kb="200">200 KB</button>
+                    <button class="kb-preset" data-kb="500">500 KB</button>
+                  </div>
+                </div>
+
+                <div class="compress-divider"></div>
+
+                <!-- Output Format -->
+                <div class="form-group" style="margin-bottom:0">
+                  <label for="output-format">Output Format</label>
+                  <div class="select-wrapper">
+                    <select id="output-format" class="form-select">
+                      <option value="image/jpeg">JPEG — best compression</option>
+                      <option value="image/webp">WebP — modern &amp; efficient</option>
+                      <option value="image/png">PNG — lossless</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                   </div>
                 </div>
               </div>
-              <div class="form-group" style="margin-top:14px;margin-bottom:0">
-                <label for="output-format">Output Format</label>
-                <div class="select-wrapper">
-                  <select id="output-format" class="form-select">
-                    <option value="image/jpeg">JPEG — best compression</option>
-                    <option value="image/webp">WebP — modern &amp; efficient</option>
-                    <option value="image/png">PNG — lossless</option>
-                  </select>
-                  <svg class="select-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </div>
-            </div>
+
+            </div><!-- end .cards-pair-row -->
 
             <!-- Watermark Card -->
             <div class="control-card">
@@ -278,35 +290,7 @@
               </div>
             </div>
 
-            <!-- Action buttons -->
-            <div class="action-row">
-              <button class="btn btn-primary flex-1" id="apply-resize-btn">
-                <svg class="btn-icon" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                Apply &amp; Preview
-              </button>
-              <button class="btn btn-success" id="download-resize-btn" disabled title="Apply first">
-                <svg class="btn-icon" viewBox="0 0 20 20" fill="none"><path d="M10 3v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 12l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                Download
-              </button>
-            </div>
 
-            <!-- Result card -->
-            <div class="result-card hidden" id="result-card-resize">
-              <div class="result-header">
-                <svg class="result-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#10b981" opacity="0.15"/><path d="M8 12l3 3 5-5" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <h3 class="result-title">Download Complete!</h3>
-              </div>
-              <div class="result-stats">
-                <div class="stat-item"><span class="stat-label">Original</span><span class="stat-value" id="r-orig">—</span></div>
-                <div class="stat-arrow">→</div>
-                <div class="stat-item"><span class="stat-label">Output</span><span class="stat-value accent" id="r-out">—</span></div>
-                <div class="stat-item"><span class="stat-label">Dimensions</span><span class="stat-value" id="r-dims">—</span></div>
-              </div>
-              <div class="saving-bar-wrap hidden" id="saving-wrap">
-                <div class="saving-bar-label"><span>Compression savings</span><span id="r-savings">0%</span></div>
-                <div class="saving-bar-track"><div class="saving-bar-fill" id="r-savings-fill"></div></div>
-              </div>
-            </div>
 
           </div>
 
@@ -346,6 +330,36 @@
                   <span class="compare-track"><span class="compare-thumb"></span></span>
                   Lock Aspect Ratio
                 </label>
+              </div>
+            </div>
+
+            <!-- Action buttons + Result — below canvas -->
+            <div class="action-row canvas-action-row">
+              <button class="btn btn-primary flex-1" id="apply-resize-btn">
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Apply &amp; Preview
+              </button>
+              <button class="btn btn-success" id="download-resize-btn" disabled title="Apply first">
+                <svg class="btn-icon" viewBox="0 0 20 20" fill="none"><path d="M10 3v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 12l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Download
+              </button>
+            </div>
+
+            <!-- Result card -->
+            <div class="result-card hidden" id="result-card-resize">
+              <div class="result-header">
+                <svg class="result-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#10b981" opacity="0.15"/><path d="M8 12l3 3 5-5" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <h3 class="result-title">Download Complete!</h3>
+              </div>
+              <div class="result-stats">
+                <div class="stat-item"><span class="stat-label">Original</span><span class="stat-value" id="r-orig">—</span></div>
+                <div class="stat-arrow">→</div>
+                <div class="stat-item"><span class="stat-label">Output</span><span class="stat-value accent" id="r-out">—</span></div>
+                <div class="stat-item"><span class="stat-label">Dimensions</span><span class="stat-value" id="r-dims">—</span></div>
+              </div>
+              <div class="saving-bar-wrap hidden" id="saving-wrap">
+                <div class="saving-bar-label"><span>Compression savings</span><span id="r-savings">0%</span></div>
+                <div class="saving-bar-track"><div class="saving-bar-fill" id="r-savings-fill"></div></div>
               </div>
             </div>
           </div>

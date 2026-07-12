@@ -161,17 +161,6 @@ An interactive canvas viewport with zoom (scroll/pinch), pan (drag), Fit-to-Fram
 
 ---
 
-## 🔮 Future Enhancements
-
-- [ ] Batch processing — resize multiple images at once
-- [ ] Background remover using AI (TensorFlow.js)
-- [ ] Image crop tool with drag handles
-- [ ] Watermark / text overlay feature
-- [ ] Dark/Light theme toggle
-- [ ] PWA support — install as desktop app
-
----
-
 ## 👨‍💻 Developer
 
 **Deepak Dubat**

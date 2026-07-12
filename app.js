@@ -878,7 +878,13 @@ function initCanvas(){
   const dw=Math.round(tw*ds), dh=Math.round(th*ds);
   pixelCanvas.width=tw; pixelCanvas.height=th;
   pixelCanvas.style.width=dw+'px'; pixelCanvas.style.height=dh+'px';
-  borderOverlay.style.cssText=`width:${dw}px;height:${dh}px;left:50%;top:50%;transform:translate(-50%,-50%)`;
+  
+  const viewport = $('canvas-viewport');
+  viewport.style.width=dw+'px';
+  viewport.style.height=dh+'px';
+  viewport.style.minHeight='auto';
+  
+  borderOverlay.style.cssText=`width:100%;height:100%;left:0;top:0;transform:none`;
   canvasStage.style.minHeight=Math.max(SMAXH,dh+40)+'px';
   fitCanvas(); drawCanvas();
 }

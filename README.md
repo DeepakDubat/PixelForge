@@ -122,7 +122,7 @@ sharpened = original + strength × (original − blurred)
 ```
 
 ### Canvas Preview
-An interactive canvas viewport with zoom (scroll/pinch), pan (drag), Fit-to-Frame, and Center controls — all rendered via `requestAnimationFrame` for smooth 60fps updates.
+An interactive canvas viewport with zoom (scroll/pinch), pan (drag), Fit-to-Frame, and Center controls — all rendered via `requestAnimationFrame` for smooth 60fps updates. The final exported image respects the exact zoom and pan coordinates, allowing borderless customized positioning and framing.
 
 ---
 

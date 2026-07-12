@@ -800,6 +800,16 @@ function drawScaled(ctx, img, w, h) {
   ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, dx, dy, dw, dh);
 }
 
+function drawInteractive(ctx, img, w, h, format) {
+  if (format === 'image/jpeg') {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, w, h);
+  } else {
+    ctx.clearRect(0, 0, w, h);
+  }
+  ctx.drawImage(img, state.ox, state.oy, img.naturalWidth * state.zoom, img.naturalHeight * state.zoom);
+}
+
 dlResizeBtn.addEventListener('click', async () => {
   if(!state.img||dlResizeBtn.disabled) return;
   showLoad('Resizing image…'); await sleep(30);
@@ -807,11 +817,11 @@ dlResizeBtn.addEventListener('click', async () => {
   const off=document.createElement('canvas'); off.width=w; off.height=h;
   const ctx=off.getContext('2d');
   
-  drawScaled(ctx, state.img, w, h);
+  const fmt2=outputFormat.value;
+  drawInteractive(ctx, state.img, w, h, fmt2);
   drawWatermark(ctx, w, h);
   
   const kb=parseFloat(targetKb.value);
-  const fmt2=outputFormat.value;
   let blob;
   if(kb&&kb>0) {
     blob = await compressTo(off, w, h, state.img, kb*1024, fmt2);
@@ -838,7 +848,7 @@ dlResizeBtn.addEventListener('click', async () => {
 async function compressTo(offCanvas, w, h, img, targetBytes, format){
   offCanvas.width = w; offCanvas.height = h;
   const ctx2 = offCanvas.getContext('2d');
-  drawScaled(ctx2, img, w, h);
+  drawInteractive(ctx2, img, w, h, format);
   drawWatermark(ctx2, w, h);
 
   if(format === 'image/png'){
@@ -875,9 +885,7 @@ function initCanvas(){
 function fitCanvas(){
   if(!state.img) return;
   const tw=state.targetW, th=state.targetH;
-  const ds=Math.min(SMAXW/tw,SMAXH/th,1); 
-  const dispW=tw*ds, dispH=th*ds;          
-  const zx=dispW/state.img.naturalWidth, zy=dispH/state.img.naturalHeight;
+  const zx=tw/state.img.naturalWidth, zy=th/state.img.naturalHeight;
   state.zoom=Math.min(zx,zy);
   state.ox=(tw-state.img.naturalWidth*state.zoom)/2;
   state.oy=(th-state.img.naturalHeight*state.zoom)/2;
@@ -904,7 +912,9 @@ function drawCanvas(){
 function updateZoomUI(){
   const p=Math.round(state.zoom*100);
   zoomVal.textContent=p+'%';
-  const mn=parseInt(zoomSlider.min),mx=parseInt(zoomSlider.max);
+  const minVal = Math.max(1, Math.min(10, p));
+  zoomSlider.min = minVal;
+  const mn=minVal, mx=parseInt(zoomSlider.max);
   const v=Math.min(Math.max(p,mn),mx); zoomSlider.value=v;
   zoomSlider.style.setProperty('--val',((v-mn)/(mx-mn)*100)+'%');
 }
